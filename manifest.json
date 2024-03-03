@@ -1,0 +1,41 @@
+{
+    "manifest_version": 3,
+    "name": "AI Chat Extractaor",
+    "version": "0.6.0",
+    "description": "AI Chat Extractor",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "icons": {
+        "16": "web_accessible_resources/ico_16.png",
+        "48": "web_accessible_resources/ico_48.png",
+        "128": "web_accessible_resources/ico_128.png"
+    },
+    "action": {
+        "default_icon": {
+            "16": "web_accessible_resources/ico_16.png",
+            "48": "web_accessible_resources/ico_48.png",
+            "128": "web_accessible_resources/ico_128.png"
+        }
+    },
+    "host_permissions": [
+        "https://*.gemini.google.com/*",
+        "https://g.co/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.gemini.google.com/*",
+                "https://g.co/*"
+            ],
+            "js": [
+                "contentscript.js"
+            ]
+        }
+    ],
+    "permissions": [
+        "contextMenus",
+        "activeTab",
+        "scripting"
+    ]
+}
